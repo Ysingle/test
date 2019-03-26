@@ -1,0 +1,20 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+yuhua
+    ${n1}    Open Browser    http://www.baidu.com    chrome
+    ${n2}    sleep    2
+    ${n3}    Get Element Attribute    //*[@id="su"]    value
+    ${n4}    sleep    2
+    ${n5}    Should Be Equal    ${n3}    百度一下
+    ${n6}    sleep    3
+    ${n7}    Input Text    //*[@id="kw"]    yuhua
+    ${n8}    sleep    3
+    ${n9}    Click Button    //*[@id="su"]
+    ${n10}    sleep    3
+    ${n11}    Get Text    //*[@id="1"]/h3/a/em
+    ${n12}    sleep    3
+    ${n13}    Should Be Equal    ${n11}    余华
+    ${n14}    sleep    3
+    [Teardown]    Close All Browsers
